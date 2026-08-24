@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+.navbar {
+  min-height: 64px;
+  padding: 0 7%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #2563eb;
+}
+
+.welcome {
+  margin-right: 12px;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 45px auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  margin-bottom: 8px;
+  font-size: 38px;
+}
+
+.auth-card {
+  width: min(420px, 92%);
+  margin: 70px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.auth-card h1 {
+  margin-top: 0;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+.small-btn {
+  background: #111827;
+  color: white;
+}
+
+.task-form {
+  grid-template-columns: 1fr 1fr auto;
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+}
+
+.task {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.05);
+}
+
+.task h3 {
+  margin: 0 0 6px;
+}
+
+.task p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.task.done h3 {
+  text-decoration: line-through;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.actions button {
+  background: #e5e7eb;
+}
+
+.actions .danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.empty {
+  text-align: center;
+  color: #6b7280;
+}
+
+a {
+  color: #2563eb;
+}
+
+@media (max-width: 700px) {
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+
+  .task {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions {
+    justify-content: flex-end;
+  }
+}
