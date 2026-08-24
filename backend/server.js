@@ -17,8 +17,8 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-app.use("/auth", authRoutes);
-app.use("/tasks", taskRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/tasks", taskRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
