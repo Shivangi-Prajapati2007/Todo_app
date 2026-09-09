@@ -6,6 +6,7 @@ import {
   Routes,
   useNavigate
 } from "react-router-dom";
+import toast from "react-hot-toast";
 import { apiRequest } from "./api";
 
 function ProtectedRoute({ children }) {
@@ -20,6 +21,7 @@ function Layout({ children }) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/login");
+    toast.success("Logout successful!");
   }
 
   return (
@@ -48,16 +50,15 @@ function Login() {
     setError("");
 
     try {
-      console.log('login called')
       const data = await apiRequest("/auth/login", {
         method: "POST",
         body: JSON.stringify(form)
       });
-      console.log('after login',data)
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       navigate("/");
+      toast.success("Login successful!");
     } catch (err) {
       setError(err.message);
     }
@@ -114,6 +115,7 @@ function Register() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       navigate("/");
+      toast.success("Registered successful!");
     } catch (err) {
       setError(err.message);
     }
@@ -186,6 +188,7 @@ function Dashboard() {
 
       setTasks([task, ...tasks]);
       setForm({ title: "", description: "" });
+      toast.success("Item added successful!");
     } catch (err) {
       setError(err.message);
     }
@@ -208,6 +211,7 @@ function Dashboard() {
     try {
       await apiRequest(`/tasks/${id}`, { method: "DELETE" });
       setTasks(tasks.filter((task) => task._id !== id));
+      toast.success("Item deleted successful!");
     } catch (err) {
       setError(err.message);
     }

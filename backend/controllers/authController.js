@@ -11,7 +11,6 @@ function createToken(user) {
 }
 
 export async function register(req, res) {
-  console.log('register called')
   try {
     const { name, email, password } = req.body;
 

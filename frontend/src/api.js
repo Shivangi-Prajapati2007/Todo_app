@@ -1,8 +1,6 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
 export async function apiRequest(path, options = {}) {
-  console.log("API URL:", API_URL);
-  console.log("Request URL:", `${API_URL}${path}`);
 
   const token = localStorage.getItem("token");
 
@@ -14,8 +12,6 @@ export async function apiRequest(path, options = {}) {
       ...(options.headers || {}),
     },
   });
-
-  console.log("Status:", response.status);
 
   const text = await response.text();
 
