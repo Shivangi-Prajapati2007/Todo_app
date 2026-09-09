@@ -48,10 +48,12 @@ function Login() {
     setError("");
 
     try {
+      console.log('login called')
       const data = await apiRequest("/auth/login", {
         method: "POST",
         body: JSON.stringify(form)
       });
+      console.log('after login',data)
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
